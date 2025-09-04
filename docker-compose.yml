@@ -6,7 +6,7 @@ services:
       POSTGRES_USER: notes
       POSTGRES_PASSWORD: notes
     ports:
-      - "5432:5432"
+      - "5433:5432"
     volumes:
       - pgdata:/var/lib/postgresql/data
     healthcheck:
@@ -17,21 +17,38 @@ services:
 
   api:
     build:
-      context: .
-    image: notes-backend:latest
+      context: ./backend/notes-backend
+    image: notes-backend:dev
     environment:
+      SPRING_PROFILES_ACTIVE: dev
       DB_HOST: db
       DB_PORT: "5432"
       DB_NAME: notes
       DB_USER: notes
       DB_PASSWORD: notes
       SERVER_PORT: "8080"
-      SECURITY_ENABLED: "false"   # pon "true" sólo si quieres Basic Auth
     ports:
       - "8080:8080"
     depends_on:
       db:
         condition: service_healthy
+    restart: unless-stopped
+
+  web:
+    build:
+      context: ./frontend/notes-frontend
+      dockerfile: Dockerfile.dev
+    image: notes-frontend:dev
+    environment:
+      # El navegador llama a localhost:8080
+      VITE_API_BASE_URL: http://localhost:8080/api/v1
+    ports:
+      - "5173:5173"
+    volumes:
+      - ./frontend/notes-frontend:/app
+      - /app/node_modules
+    depends_on:
+      - api
     restart: unless-stopped
 
 volumes:

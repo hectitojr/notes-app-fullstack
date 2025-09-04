@@ -1,0 +1,4 @@
+app:
+  cors:
+    allowed-origins:
+      - https://notes.tu-dominio.com

@@ -1,32 +1,26 @@
-# Java / Maven
-target/
-!.mvn/wrapper/maven-wrapper.jar
-.mvn/timing.properties
+# Backend
+backend/**/target/
+backend/**/.mvn/
+backend/**/.idea/
+backend/**/.project
+backend/**/.classpath
+backend/**/.settings/
 
-# IDEs
-.idea/
-*.iml
-.project
-.classpath
-.settings/
-.vscode/
+# Frontend
+frontend/**/node_modules/
+frontend/**/.next/
+frontend/**/dist/
+frontend/**/.vite/
 
-# OS
+# OS / Editor
 .DS_Store
 Thumbs.db
-
-# Logs
 *.log
-logs/
 
-# Docker
-*.env
-.env
+# Entornos locales
 **/.env
-**/docker-data/
-**/pgdata/
+**/.env.*
+!.env.example
 
-# Node (por si agregas frontend luego)
-node_modules/
-dist/
-build/
+# Docker artefacts locales
+**/.dockerignore

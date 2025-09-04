@@ -1,0 +1,11 @@
+FROM node:20-alpine
+
+WORKDIR /app
+COPY package*.json ./
+RUN npm ci
+
+# copiamos el resto para que HMR funcione bien
+COPY . .
+
+EXPOSE 5173
+CMD ["npm","run","dev","--","--host","0.0.0.0"]

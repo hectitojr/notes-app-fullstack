@@ -26,12 +26,6 @@ spring:
 server:
   port: ${SERVER_PORT:8080}
 
-# habilita/inhabilita la seguridad
-app:
-  security:
-    enabled: ${SECURITY_ENABLED:false}
-
-# ACTUATOR (exponer health/info y ver detalles)
 management:
   endpoints:
     web:
@@ -43,3 +37,8 @@ management:
       show-components: always
       probes:
         enabled: true
+
+# lista vacía; cada perfil la sobreescribe
+app:
+  cors:
+    allowed-origins: []
