@@ -1,0 +1,14 @@
+package com.zoedatalab.notesbackend.web.advice;
+
+public enum ErrorCode {
+    NOTE_NOT_FOUND,
+    CATEGORY_NOT_FOUND,
+    INVALID_NOTE_TITLE,
+    INVALID_CATEGORY_NAME,
+    VALIDATION_FAILED,
+    MALFORMED_JSON,
+    DATA_CONFLICT,
+    METHOD_NOT_ALLOWED,
+    UNSUPPORTED_MEDIA_TYPE,
+    INTERNAL_ERROR
+}

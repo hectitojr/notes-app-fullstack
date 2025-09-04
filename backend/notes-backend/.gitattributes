@@ -1,0 +1,14 @@
+* text=auto eol=lf
+
+*.sh      text eol=lf
+*.yml     text eol=lf
+*.yaml    text eol=lf
+*.sql     text eol=lf
+*.java    text eol=lf
+*.md      text eol=lf
+Dockerfile text eol=lf
+mvnw      text eol=lf
+
+*.jar     -text
+*.png     -text
+*.jpg     -text
